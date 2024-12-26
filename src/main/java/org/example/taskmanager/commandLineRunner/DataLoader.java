@@ -2,14 +2,14 @@ package org.example.taskmanager.commandLineRunner;
 
 import org.example.taskmanager.repository.entity.Category;
 import org.example.taskmanager.repository.entity.CategoryName;
-import org.example.taskmanager.repository.dao.CategoryRepository;
+import org.example.taskmanager.repository.dao.CategoryDao;
 import org.example.taskmanager.repository.entity.Status;
 import org.example.taskmanager.repository.entity.StatusDescription;
-import org.example.taskmanager.repository.dao.StatusRepository;
+import org.example.taskmanager.repository.dao.StatusDao;
 import org.example.taskmanager.repository.entity.Task;
-import org.example.taskmanager.repository.dao.TaskRepository;
+import org.example.taskmanager.repository.dao.TaskDao;
 import org.example.taskmanager.repository.entity.User;
-import org.example.taskmanager.repository.dao.UserRepository;
+import org.example.taskmanager.repository.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,16 +20,16 @@ import java.util.List;
 @Component
 public class DataLoader implements CommandLineRunner {
     @Autowired
-    private TaskRepository taskRepository;
+    private TaskDao taskDao;
 
     @Autowired
-    private StatusRepository statusRepository;
+    private StatusDao statusDao;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserDao userDao;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryDao categoryDao;
 
     @Override
     public void run(String... args) throws Exception{
@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner {
         Status completed = new Status(StatusDescription.completed);
         Status executing = new Status(StatusDescription.executing);
         Status notStarted = new Status(StatusDescription.notStarted);
-        statusRepository.saveAll(List.of(
+        statusDao.saveAll(List.of(
                 notStarted,
                 waiting,
                 executing,
@@ -49,7 +49,7 @@ public class DataLoader implements CommandLineRunner {
         //Category creation and save
         Category development = new Category(CategoryName.development);
         Category conception = new Category(CategoryName.conception);
-        categoryRepository.saveAll(List.of(
+        categoryDao.saveAll(List.of(
                 development,
                 conception
         ));
@@ -87,8 +87,8 @@ public class DataLoader implements CommandLineRunner {
                 sleep,
                 jump));
 
-        userRepository.save(joseph);
-        taskRepository.saveAll(List.of(
+        userDao.save(joseph);
+        taskDao.saveAll(List.of(
                 sleep,
                 jump));
 

@@ -1,6 +1,6 @@
 package org.example.taskmanager.web.controller;
 
-import org.example.taskmanager.repository.dao.TaskRepository;
+import org.example.taskmanager.repository.dao.TaskDao;
 import org.example.taskmanager.repository.entity.Task;
 import org.example.taskmanager.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +13,23 @@ import java.util.List;
 public class TaskController {
 
     private final TaskService taskService;
-    private final TaskRepository taskRepository;
+    private final TaskDao taskDao;
 
     @Autowired
-    public TaskController(TaskService taskService, TaskRepository taskRepository) {
+    public TaskController(TaskService taskService, TaskDao taskDao) {
         this.taskService = taskService;
-        this.taskRepository = taskRepository;
+        this.taskDao = taskDao;
     }
 
 
     @GetMapping
-    public List<Task> getTasks(){
-        return taskService.getTasks();
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
     }
 
     @GetMapping(params = "taskId")
-    public List<Task> getTaskById(@RequestParam Long taskId) {
-        return taskService.getTaskById(taskId);
+    public List<Task> getAllTaskById(@RequestParam Long taskId) {
+        return taskService.getAllTaskById(taskId);
     }
 
     @PostMapping
