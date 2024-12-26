@@ -1,13 +1,14 @@
-package org.example.taskmanager.task;
+package org.example.taskmanager.service;
 
 import jakarta.transaction.Transactional;
+import org.example.taskmanager.repository.dao.TaskRepository;
+import org.example.taskmanager.repository.entity.Task;
 import org.hibernate.tool.schema.spi.SqlScriptException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -23,13 +24,19 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public void addTask(Task task){
-        Optional<Task> taskOptional = taskRepository.findTaskByTitre(task.getTitre());
-        if(taskOptional.isPresent()){
-            throw new SqlScriptException("This titre already exist");
-        }
-        taskRepository.save(task);
+    public List<Task> getTaskById(Long taskId){
+        return taskRepository.getTasksById(taskId);
+    }
 
+
+
+    public void addTask(Task task){
+        if(taskRepository.findTaskByTitre(task.getTitre()).isEmpty()){
+            taskRepository.save(task);
+        }
+        else {
+            throw new SqlScriptException("task title taken already");
+        }
     }
 
     public void deleteTask(Long taskId){

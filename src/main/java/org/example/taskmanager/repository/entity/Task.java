@@ -1,13 +1,9 @@
-package org.example.taskmanager.task;
+package org.example.taskmanager.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.taskmanager.categories.Category;
-import org.example.taskmanager.status.Status;
-import org.example.taskmanager.user.User;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 

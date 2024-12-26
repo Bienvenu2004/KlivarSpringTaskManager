@@ -1,4 +1,4 @@
-package org.example.taskmanager.categories;
+package org.example.taskmanager.repository.entity;
 
 public enum CategoryName {
     development,

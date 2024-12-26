@@ -1,15 +1,15 @@
 package org.example.taskmanager.commandLineRunner;
 
-import org.example.taskmanager.categories.Category;
-import org.example.taskmanager.categories.CategoryName;
-import org.example.taskmanager.categories.CategoryRepository;
-import org.example.taskmanager.status.Status;
-import org.example.taskmanager.status.StatusDescription;
-import org.example.taskmanager.status.StatusRepository;
-import org.example.taskmanager.task.Task;
-import org.example.taskmanager.task.TaskRepository;
-import org.example.taskmanager.user.User;
-import org.example.taskmanager.user.UserRepository;
+import org.example.taskmanager.repository.entity.Category;
+import org.example.taskmanager.repository.entity.CategoryName;
+import org.example.taskmanager.repository.dao.CategoryRepository;
+import org.example.taskmanager.repository.entity.Status;
+import org.example.taskmanager.repository.entity.StatusDescription;
+import org.example.taskmanager.repository.dao.StatusRepository;
+import org.example.taskmanager.repository.entity.Task;
+import org.example.taskmanager.repository.dao.TaskRepository;
+import org.example.taskmanager.repository.entity.User;
+import org.example.taskmanager.repository.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package org.example.taskmanager.status;
+package org.example.taskmanager.repository.entity;
 
 public enum StatusDescription {
     notStarted,

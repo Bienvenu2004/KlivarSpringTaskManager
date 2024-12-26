@@ -1,8 +1,7 @@
-package org.example.taskmanager.status;
+package org.example.taskmanager.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.taskmanager.task.Task;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 

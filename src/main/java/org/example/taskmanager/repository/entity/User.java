@@ -1,8 +1,7 @@
-package org.example.taskmanager.user;
+package org.example.taskmanager.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.taskmanager.task.Task;
 
 import java.util.List;
 
